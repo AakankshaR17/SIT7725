@@ -1,0 +1,76 @@
+/* Importing Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;700&display=swap');
+
+/* General Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #e3f2fd; /* Light Blue Background */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar Styles */
+nav {
+    background-color: #1e88e5; /* Primary Blue */
+}
+
+nav .brand-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+/* Main Content Styles */
+.container {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Footer Styles */
+footer.page-footer {
+    background-color: #0d47a1; /* Dark Blue */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    flex-shrink: 0;
+}
+
+footer .container .row {
+    margin-bottom: 0;
+}
+
+footer .container .col {
+    margin-bottom: 20px;
+}
+
+footer .container .col h5 {
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer .container .col ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+footer .container .col ul li a {
+    color: #bbdefb; /* Light Blue Links */
+    text-decoration: none;
+}
+
+footer .container .col ul li a:hover {
+    color: #ffffff; /* White on Hover */
+}
+
+footer .footer-copyright {
+    background-color: #0b3d91; /* Even Darker Blue */
+    padding: 10px 0;
+    text-align: center;
+    color: #bbdefb;
+}

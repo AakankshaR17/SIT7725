@@ -1,24 +1,21 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-
+const path = require('path');
 const app = express();
 const port = 3000;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'week3')));
 
+// Routes
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(path.join(__dirname,  'index1.html'));
 });
 
-app.post('/add', (req, res) => {
-    const num1 = parseFloat(req.body.num1);
-    const num2 = parseFloat(req.body.num2);
-    const result = num1 + num2;
-
-    res.json({ result: result });
+app.get('/contact.html', (req, res) => {
+    res.sendFile(path.join(__dirname,  'contact.html'));
 });
 
+// Start the server
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server running at http://localhost:${port}`);
 });
