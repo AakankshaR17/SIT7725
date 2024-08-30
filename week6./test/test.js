@@ -1,82 +1,109 @@
 var expect  = require("chai").expect;
 var request = require("request");
 
-describe("Add Two Numbers", function() {
-    var url = "http://localhost:8080/addTwoNumbers/3/5";
-    it("returns status 200 to check if api works", function(done) {
+describe("Subtract Two Numbers", function() {
+    var url = "http://localhost:8080/subtractTwoNumbers/10/4";
+    it("returns status 200 to check if API works", function(done) {
         request(url, function(error, response, body) {
             expect(response.statusCode).to.equal(200);
-            done()
+            done();
           });
     });
-    it("returns statusCode key in body to check if api give right result should be 200", function(done) {
+    it("returns statusCode key in body to check if API gives right result, should be 200", function(done) {
         request(url, function(error, response, body) {
-            body = JSON.parse(body)
+            body = JSON.parse(body);
             expect(body.statusCode).to.equal(200);
-            done()
+            done();
           });
     });
-    it("returns the result as number", function(done) {
+    it("returns the result as a number", function(done) {
         request(url, function(error, response, body) {
-            body = JSON.parse(body)
+            body = JSON.parse(body);
             expect(body.result).to.be.a('number');
-            done()
+            done();
           });
     });
-    it("returns the result equal to 8", function(done) {
-      request(url, function(error, response, body) {
-          body = JSON.parse(body)
-          expect(body.result).to.equal(8);
-          done()
-        });
-  });
-  it("returns the result not equal to 15", function(done) {
-    request(url, function(error, response, body) {
-        body = JSON.parse(body)
-        expect(body.result).to.not.equal(15);
-        done()
-      });
+    it("returns the result equal to 6", function(done) {
+        request(url, function(error, response, body) {
+            body = JSON.parse(body);
+            expect(body.result).to.equal(6);
+            done();
+          });
+    });
+    it("returns the result not equal to 8", function(done) {
+        request(url, function(error, response, body) {
+            body = JSON.parse(body);
+            expect(body.result).to.not.equal(8);
+            done();
+          });
+    });
 });
-  });
 
-  describe("Add Two strings", function() {
-    var url = "http://localhost:8080/addTwoNumbers/a/b";
+describe("Multiply Two Numbers", function() {
+    var url = "http://localhost:8080/multiplyTwoNumbers/3/5";
     it("should return status 200", function(done) {
         request(url, function(error, response, body) {
             expect(response.statusCode).to.equal(200);
-            done()
+            done();
           });
     });
-    it("returns statusCode key in body to check if api gives right result should be 400", function(done) {
+    it("returns statusCode key in body to check if API gives right result, should be 200", function(done) {
         request(url, function(error, response, body) {
-            body = JSON.parse(body)
-            expect(body.statusCode).to.equal(400);
-            done()
+            body = JSON.parse(body);
+            expect(body.statusCode).to.equal(200);
+            done();
           });
     });
-    it("returns the result as null", function(done) {
+    it("returns the result as a number", function(done) {
         request(url, function(error, response, body) {
-            body = JSON.parse(body)
-            expect(body.result).to.be.a('null');
-            done()
+            body = JSON.parse(body);
+            expect(body.result).to.be.a('number');
+            done();
           });
     });
-  });
+    it("returns the result equal to 15", function(done) {
+        request(url, function(error, response, body) {
+            body = JSON.parse(body);
+            expect(body.result).to.equal(15);
+            done();
+          });
+    });
+    it("returns the result not equal to 10", function(done) {
+        request(url, function(error, response, body) {
+            body = JSON.parse(body);
+            expect(body.result).to.not.equal(10);
+            done();
+          });
+    });
+});
 
-
-  describe("Add Two strings", function() {
-    var url = "http://localhost:8080/api/projects";
+describe("Fetch Project Details", function() {
+    var url = "http://localhost:8080/api/projectDetails";
     it("should return status 200", function(done) {
         request(url, function(error, response, body) {
             expect(response.statusCode).to.equal(200);
-            done()
+            done();
           });
     });
-    it("returns the result as array", function(done) {
+    it("returns the result as an object", function(done) {
         request(url, function(error, response, body) {
-            body = JSON.parse(body)
-            expect(body).to.be.a('array');
-            done()
+            body = JSON.parse(body);
+            expect(body).to.be.an('object');
+            done();
           });
     });
-  });
+    it("should have a 'projectName' property", function(done) {
+        request(url, function(error, response, body) {
+            body = JSON.parse(body);
+            expect(body).to.have.property('projectName');
+            done();
+          });
+    });
+    it("should have a 'projectId' property", function(done) {
+        request(url, function(error, response, body) {
+            body = JSON.parse(body);
+            expect(body).to.have.property('projectId');
+            done();
+          });
+    });
+});
